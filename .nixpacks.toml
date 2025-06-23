@@ -1,5 +1,8 @@
 [phases.setup]
-nodejs = "18.21.0"
+nixPkgs = ['nodejs@20']
+
+[variables]
+NODE_VERSION = "20"
 
 [phases.setup.packages]
 bun = true
