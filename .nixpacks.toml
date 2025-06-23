@@ -1,0 +1,17 @@
+[phases.setup]
+nodejs = "18.21.0"
+
+[phases.setup.packages]
+bun = true
+
+[phases.build]
+commands = [
+  "bun install",
+  "bun run build"
+]
+
+[phases.build.cache]
+paths = [
+  "node_modules",
+  ".bun"
+]
