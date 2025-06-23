@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import '@fontsource-variable/onest';
+import "@fontsource-variable/onest";
 import Header from "../components/Header.astro";
 ---
 
@@ -14,9 +14,8 @@ import Header from "../components/Header.astro";
     <title>Astro Basics</title>
   </head>
   <body>
-    <Header>
-      <slot />
-    </Header>
+    <Header />
+    <slot />
   </body>
 
   <style is:global>
@@ -24,10 +23,11 @@ import Header from "../components/Header.astro";
       color-scheme: light dark;
     }
     html {
-      font-family: 'Onest Variable',system-ui, sans-serif;
+      font-family: "Onest Variable", system-ui, sans-serif;
     }
     body {
       display: flex;
+	  flex-direction: column;
       justify-content: center;
       background: #050505;
       min-height: 100vh;
