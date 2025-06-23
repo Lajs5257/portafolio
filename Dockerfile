@@ -6,37 +6,23 @@ WORKDIR /app
 RUN apk add --no-cache bash curl \
   && curl -fsSL https://bun.sh/install | bash
 
-# Add bun to PATH
+# Set up Bun environment
 ENV BUN_INSTALL="/root/.bun"
 ENV PATH="${BUN_INSTALL}/bin:$PATH"
 
 # Install dependencies
 COPY package.json bun.lockb* ./
-
-# RUN bun install
-FROM base AS prod-deps
-RUN bun install --no-dev
-
-# Install dev dependencies
-FROM base AS build-deps
 RUN bun install
 
-# Copy source files
-FROM build-deps AS build
+# Copy application files
 COPY . .
-RUN bun run build
 
-# Create a runtime image
-FROM base AS runtime
-COPY --from=prod-deps /app/node_modules ./node_modules
-COPY --from=build /app/dist ./dist
+# Build the application
+RUN bun run build \
+    && bun add -g serve
 
-# Set environment variables
-ENV HOST=0.0.0.0
-ENV PORT=4321
-
-# Expose port
+# Create a production image
 EXPOSE 4321
 
-# Run the app
-CMD ["bun", "run", "preview"]
+# Use the serve command to serve the built application
+CMD ["serve", "-s", "dist", "-l", "4321"]
