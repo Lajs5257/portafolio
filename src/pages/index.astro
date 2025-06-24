@@ -1,5 +1,9 @@
 ---
 import Badge from "../components/Badge.astro";
+import Github from "../components/icons/Github.astro";
+import Gmail from "../components/icons/Gmail.astro";
+import LinkedIn from "../components/icons/LinkedIn.astro";
+import SocialBadget from "../components/SocialBadget.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -20,9 +24,22 @@ import Layout from "../layouts/Layout.astro";
         </a>
       </h1>
       <h2 class="text-xl text-gray-400 text-center mt-4">
-        Un desarrollador web full stack, con alrededor de 5 años de experiencia.
-        <a href="https://github.com/Lajs5257">Github</a>
+        Desarrollador Fullstack con más de 4 años de experiencia creando soluciones digitales. Con experiencia en tecnologías como .NET, Flutter, SQL, Docker y Python. Apasionado por el aprendizaje constante y la mejora continua.
       </h2>
+      <nav class="flex gap-x-4 justify-center mt-8">
+          <SocialBadget href="https://www.linkedin.com/in/luis-alberto-jimenez-soto/">
+            <LinkedIn class="w-6 h-6" />
+            <span class="text-gray-800 dark:text-gray-200">LinkedIn</span>
+          </SocialBadget>
+          <SocialBadget href="https://github.com/Lajs5257">
+            <Github class="w-6 h-6" />
+            <span class="text-gray-800 dark:text-gray-200">GitHub</span>
+          </SocialBadget>
+          <SocialBadget href="mailto:lajs5257@gmail.com">
+            <Gmail class="w-6 h-6" />
+            <span class="text-gray-800 dark:text-gray-200">Gmail</span>
+          </SocialBadget>
+      </ul>
     </section>
   </main>
 </Layout>
