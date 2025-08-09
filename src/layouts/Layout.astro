@@ -35,9 +35,18 @@ import Header from "../components/Header.astro";
 
     <!-- Animated background particles (now static, sin pulse) -->
     <div class="fixed inset-0 -z-5 overflow-hidden">
-      <div class="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-15"></div>
-      <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-15"></div>
-      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-10"></div>
+      <div
+        class="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-15"
+      >
+      </div>
+      <div
+        class="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-xl opacity-15"
+      >
+      </div>
+      <div
+        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-cyan-500 rounded-full mix-blend-multiply filter blur-xl opacity-10"
+      >
+      </div>
     </div>
 
     <div class="relative z-10 min-h-screen">
@@ -48,29 +57,57 @@ import Header from "../components/Header.astro";
     </div>
 
     <!-- Back to top button (mejorado) -->
-    <button id="backToTop" aria-label="Volver arriba" class="fixed bottom-6 right-6 h-12 w-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-lg back-to-top-shadow flex items-center justify-center opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400/50 z-50">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+    <button
+      id="backToTop"
+      aria-label="Volver arriba"
+      class="fixed bottom-6 right-6 h-12 w-12 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 text-white shadow-lg back-to-top-shadow flex items-center justify-center opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400/50 z-50"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"
+        ></path>
       </svg>
     </button>
 
     <script>
-      const btn = document.getElementById('backToTop');
+      const btn = document.getElementById("backToTop");
       if (btn) {
         const showAt = 400; // px
         const toggleBtn = () => {
           if (window.scrollY > showAt) {
-            btn.classList.add('opacity-100','pointer-events-auto','translate-y-0');
-            btn.classList.remove('opacity-0','pointer-events-none','translate-y-4');
+            btn.classList.add(
+              "opacity-100",
+              "pointer-events-auto",
+              "translate-y-0"
+            );
+            btn.classList.remove(
+              "opacity-0",
+              "pointer-events-none",
+              "translate-y-4"
+            );
           } else {
-            btn.classList.add('opacity-0','pointer-events-none','translate-y-4');
-            btn.classList.remove('opacity-100','pointer-events-auto','translate-y-0');
+            btn.classList.add(
+              "opacity-0",
+              "pointer-events-none",
+              "translate-y-4"
+            );
+            btn.classList.remove(
+              "opacity-100",
+              "pointer-events-auto",
+              "translate-y-0"
+            );
           }
         };
-        window.addEventListener('scroll', toggleBtn, { passive: true });
+        window.addEventListener("scroll", toggleBtn, { passive: true });
         toggleBtn(); // estado inicial
-        btn.addEventListener('click', () => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+        btn.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
         });
       }
     </script>
