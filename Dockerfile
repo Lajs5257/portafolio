@@ -18,11 +18,10 @@ RUN bun install
 COPY . .
 
 # Build the application
-RUN bun run build \
-    && bun add -g serve
+RUN bun run build && bun add -g serve
 
 # Create a production image
 EXPOSE 4321
 
-# Use the serve command to serve the built application
-CMD ["serve", "-s", "dist", "-l", "4321"]
+# Serve como sitio multi‑página (sin -s para NO forzar SPA fallback)
+CMD ["serve", "dist", "-l", "4321"]
