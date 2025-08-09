@@ -1,48 +1,119 @@
-# Astro Starter Kit: Basics
+# Portafolio – Luis Alberto Jiménez
 
-```sh
-bun create astro@latest -- --template basics
+Portafolio personal para presentar experiencia, habilidades y proyectos como Full Stack Developer (.NET, Flutter, SQL, Docker y Python).
+
+![Stack](https://img.shields.io/badge/Astro-2C2952?logo=astro&logoColor=FF5D01) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-0f172a?logo=tailwindcss&logoColor=38BDF8) ![Bun](https://img.shields.io/badge/Bun-000?logo=bun&logoColor=fff) ![TypeScript](https://img.shields.io/badge/TypeScript-1f2937?logo=typescript&logoColor=3178C6)
+
+## ✨ Características
+- Diseño oscuro con gradientes sutiles y efecto glass
+- Secciones: Hero, Experiencia, Habilidades, Proyectos, Contacto
+- Animaciones ligeras (float / fade) optimizadas
+- Componente para descarga de CV
+- Botón “volver arriba” con aparición progresiva
+- Código estructurado por componentes Astro + Tailwind utility-first
+- Preparado para despliegue estático (CDN friendly)
+
+## 🗂 Estructura del Proyecto
 ```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
 /
+├── astro.config.mjs
+├── package.json
+├── Dockerfile
 ├── public/
-│   └── favicon.svg
+│   ├── favicon.svg
+│   └── cv-luis-alberto-jimenez.pdf
 ├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── Badge.astro
+│   │   ├── DownloadCV.astro
+│   │   ├── Header.astro
+│   │   ├── SocialBadget.astro
+│   │   └── icons/*.astro
 │   ├── layouts/
 │   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── pages/
+│   │   ├── index.astro
+│   │   ├── about.astro (en revisión / posible fusión)
+│   │   ├── projects.astro
+│   │   └── contact.astro
+│   └── styles/global.css
+└── tsconfig.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🚀 Inicio Rápido
+Requisitos: [Bun](https://bun.sh) (o adapta a npm/yarn/pnpm).
+```bash
+bun install
+bun run dev   # http://localhost:4321
+```
+Compilar producción:
+```bash
+bun run build
+bun run preview
+```
+Con npm (alternativa):
+```bash
+npm install
+npm run dev
+```
 
-## 🧞 Commands
+## 🧩 Scripts
+| Script | Descripción |
+|--------|-------------|
+| bun dev | Servidor de desarrollo |
+| bun build | Genera `dist/` listo para deploy |
+| bun preview | Sirve la build local |
 
-All commands are run from the root of the project, from a terminal:
+## 🔧 Personalización Rápida
+- Colores: ajusta gradientes en `Layout.astro`.
+- Animaciones: modifica/añade en `global.css`.
+- Navegación: edita `Header.astro` (anclas vs páginas).
+- Contenido: actualiza secciones dentro de `pages/`.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+## 📈 Performance / Buenas Prácticas
+Aplicadas o recomendadas:
+- Eliminación de clases no usadas (Tailwind JIT + build)
+- Animaciones solo en `transform` / `opacity`
+- Scroll suave + botón de retorno (no bloquea hilo)
+- Posible uso futuro de `content-visibility:auto` en secciones largas
+- Imágenes optimizables (siguiente paso: incorporar `@astrojs/image`)
 
-## 👀 Want to learn more?
+## 🐳 Despliegue con Docker
+```
+# Build de producción
+bun run build
+# Crear imagen
+docker build -t portafolio .
+# Ejecutar contenedor (ejemplo sirve en :4321 interno → mapear 8080 host)
+docker run -p 8080:4321 portafolio
+```
+(Verifica el CMD/EXPOSE del Dockerfile y ajusta puerto si cambia.)
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## ☁️ Despliegue (alternativas)
+- Vercel: importar repo → framework Astro → build `bun run build` → output `dist`.
+- Netlify: build `bun run build` → publish `dist/`.
+- Cloudflare Pages: build command `bun run build`.
+
+## ⚙️ Producción (Resumen)
+Sitio: https://lajs5257.dev
+Infra: Oracle Cloud VPS + Coolify + Caddy + Cloudflare.
+Deploy: push a `main` → webhook → build (Bun) → Caddy sirve nueva versión (cero downtime).
+Cache: assets versionados (immutable) + edge Cloudflare.
+Detalles completos y Caddyfile en [`docs/DEPLOY.md`](./docs/DEPLOY.md).
+
+## 🛣 Roadmap / Próximos Pasos
+- [ ] Fusionar sección About dentro de Home (versión ancla)
+- [ ] Optimizar imágenes (avatar WebP + `@astrojs/image`)
+- [ ] Añadir sección Blog / Artículos
+- [ ] Implementar modo claro (theme switch)
+- [ ] Tests de accesibilidad (axe / Lighthouse)
+- [ ] Integrar Analytics ligero (Plausible / Umami)
+
+## 📬 Contacto
+- LinkedIn: https://www.linkedin.com/in/luis-alberto-jimenez-soto/
+- Email: lajs5257@gmail.com
+- GitHub: https://github.com/Lajs5257
+
+---
+Hecho con Astro + Tailwind + Bun.
