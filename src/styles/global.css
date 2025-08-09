@@ -74,3 +74,13 @@
   background: rgba(59, 130, 246, 0.3);
   color: white;
 }
+
+/* Suave animación para los blobs (reduce parpadeo fuerte del azul) */
+@keyframes soft-pulse {
+  0%, 100% { opacity: var(--pulse-opacity, 0.12); transform: scale(1); }
+  50% { opacity: calc(var(--pulse-opacity, 0.12) + 0.05); transform: scale(1.04); }
+}
+
+.animate-soft-pulse {
+  animation: soft-pulse 10s ease-in-out infinite;
+}
