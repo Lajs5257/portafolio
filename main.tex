@@ -1,0 +1,142 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper, margin=0.6in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{hyperref}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Configurar hyperref
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=darkgray,
+    pdftitle={Luis Alberto Jimenez Soto - CV},
+    pdfauthor={Luis Alberto Jimenez Soto}
+}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Define colors
+\definecolor{darkgray}{RGB}{64, 64, 64}
+\definecolor{mediumgray}{RGB}{128, 128, 128}
+\definecolor{reddark}{RGB}{165, 30,0}
+
+% Section formatting - Harvard style with simple line
+\titleformat{\section}{\large\bfseries\color{reddark}}{}{0em}{}[\color{mediumgray}\titlerule]
+\titlespacing{\section}{0pt}{7pt}{4pt}
+
+% Remove paragraph indentation
+\setlength{\parindent}{0pt}
+
+% Custom list formatting - Harvard style
+\setlist[itemize]{leftmargin=*, itemsep=1pt, parsep=0pt, topsep=1pt, partopsep=0pt}
+
+\begin{document}
+
+% Header with name - Harvard style
+\begin{center}
+{\huge \textbf{Luis Alberto Jiménez Soto}}
+\end{center}
+
+% Contact information - Harvard format
+\begin{center}
+\raisebox{-0.1ex}{\faPhone}\ +52 677 885 5228 \quad
+\raisebox{-0.1ex}{\faEnvelope}\ \href{mailto:lajs5257@gmail.com}{lajs5257@gmail.com}
+\end{center}
+\begin{center}
+\raisebox{-0.1ex}{\faGithub}\ \href{https://github.com/Lajs5257}{github.com/Lajs5257} \quad
+\raisebox{-0.1ex}{\faLinkedin}\ \href{https://www.linkedin.com/in/luis-alberto-jimenez-soto/}{linkedin.com/in/luis-alberto-jimenez-soto}
+\end{center}
+
+% PERFIL PROFESIONAL
+\section{Perfil Profesional}
+\textbf{Ingeniero en Sistemas Computacionales} con 5 años de experiencia demostrable en el desarrollo y optimización de soluciones \textbf{Full Stack}. Especializado en \textbf{Ciencia de Datos} y con un enfoque actual en la construcción de \textbf{aplicaciones robustas web y móviles utilizando Flutter y .NET}. Apasionado por la tecnología, me impulsa el aprendizaje continuo y la aplicación de metodologías ágiles para entregar productos de alto valor que impulsen la eficiencia operativa y la toma de decisiones basada en datos.
+
+% EXPERIENCIA LABORAL
+\section{Experiencia Laboral}
+
+% Change And Code (Consultora) - Empleador principal actual
+\textbf{Full-stack Developer} \hfill \textbf{Septiembre 2023 – Actualidad}\\
+\textit{Change And Code (Consultora)} \hfill \textit{Durango, Durango, México · Remoto}\\
+\begin{itemize}
+    \item Como \textbf{Full-stack Developer} en esta consultora, me he especializado en la creación de soluciones \textbf{web y móviles robustas} utilizando \textbf{Flutter y .NET}, además de brindar soporte y mantenimiento a una base de datos \textbf{MongoDB}.
+    \item Mi rol principal se ha centrado en el desarrollo de proyectos para clientes, destacando:
+    \begin{itemize}
+        \item \textbf{\color{reddark}{Proyecto para Tenco Integración de Sistemas:}}
+        \begin{itemize}
+            \item \textbf{Lideré el desarrollo y mantenimiento} de \textbf{aplicaciones web críticas en C\#} dentro del sistema \textbf{ERP Simon-e}, asegurando la funcionalidad óptima y escalabilidad para operaciones clave de la empresa.
+            \item \textbf{Optimicé y refactoricé aplicaciones API y MVC} en \textbf{.NET Standard, .NET Core y .NET}, realizando migraciones a versiones más recientes y generando pruebas unitarias, lo que \textbf{mejoró la robustez y el rendimiento del sistema}.
+            \item \textbf{Desarrollé aplicaciones móviles completas en Flutter} para la migración de servicios externos (ej. Concur) a soluciones internas (viáticos, reservas de hotel/vuelos), \textbf{optimizando los flujos de trabajo}.
+            \item \textbf{Creé una aplicación interna en Flutter para la publicación de noticias empresariales}, \textbf{mejorando la comunicación interna}.
+            \item \textbf{Implementé notificaciones push con Firebase}, mejorando la interacción y el engagement de los usuarios.
+            \item \textbf{Optimicé procedimientos almacenados en SQL} y actualicé la lógica de negocio, lo que resultó en una \textbf{reducción del tiempo de respuesta de las consultas}.
+            \item \textbf{Gestioné la migración masiva de archivos a Synology}, garantizando la \textbf{integridad de la información y la continuidad de las operaciones}.
+        \end{itemize}
+        \item \textbf{\color{reddark}{Proyecto para Dossier:}}
+        \begin{itemize}
+            \item \textbf{Gestioné la actualización de certificados de seguridad y la creación/restauración de bases de datos MongoDB} en \textbf{AWS}, asegurando la integridad y disponibilidad de datos críticos.
+            \item \textbf{Administré usuarios y permisos} en entornos de base de datos para el cliente, garantizando el \textbf{control de acceso y la seguridad de la información}.
+        \end{itemize}
+        \item \textbf{\color{reddark}{Proyecto para ClubLia:}}
+        \begin{itemize}
+            \item Diseñé y construí \textbf{APIs RESTful de alto rendimiento utilizando .NET Core 6} para integrar servicios clave.
+            \item Desarrollé y mantuve funcionalidades complejas en \textbf{sistemas web utilizando Laravel (PHP) y React (JavaScript)}.
+            \item Creé y personalicé \textbf{temas para WordPress}, adaptando la plataforma a requerimientos específicos del negocio.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
+\section{Centro de Innovación Tecnológica (ITD)}
+
+\textbf{Full Stack Developer} \hfill \textbf{Marzo 2023 – Junio 2023 (Proyecto a medio tiempo)}\\
+\textit{Centro de Innovación Tecnológica (ITD)} \hfill \textit{Durango, México}\\
+\begin{itemize}
+    \item Diseñé y desarrollé un \textbf{Bot de Telegram} que \textbf{automatizó y agilizó tareas específicas}, mejorando la eficiencia operativa general.
+    \item Mantuve y creé nuevas funcionalidades para \textbf{sistemas web basados en Flask y React}, implementando optimización de código y mejoras UX/UI que \textbf{incrementaron la productividad y la satisfacción del usuario}.
+    \item Actualicé el sistema de facturación de \textbf{CFDI 3.3 a CFDI 4.0}, asegurando el \textbf{cumplimiento normativo} y la \textbf{continuidad sin interrupciones} de las operaciones comerciales.
+    \item \textbf{Reduje el tiempo de ciclo del equipo de 2 meses a 3 semanas} (una mejora del 60\%) al promover prácticas de XP, programación en pareja/grupo, principios DevOps y una mentalidad de experimentación.
+\end{itemize}
+
+\section{SC Computación}
+\textbf{Full Stack Developer} \hfill \textbf{Diciembre 2020 – Febrero 2023 (Medio tiempo)}\\
+\textit{SC Computación} \hfill \textit{Durango, México}\\
+\begin{itemize}
+    \item Realicé la \textbf{limpieza y transformación de datos} (DBF, XLS, CSV) con \textbf{Python} para una migración exitosa a \textbf{SQL Server}, \textbf{mejorando la calidad y accesibilidad de la información}.
+    \item \textbf{Lideré la migración de aplicaciones de escritorio a web} utilizando \textbf{React y Node.js} e implementando en \textbf{Azure}, lo que \textbf{permitió el acceso remoto y aumentó la eficiencia operativa}.
+    \item Mantuve y desarrollé nuevas funcionalidades para \textbf{sistemas de escritorio en C\#}, asegurando la \textbf{operación continua y la satisfacción del usuario}.
+    \item Creé y optimicé \textbf{procedimientos almacenados y scripts para migraciones de bases de datos}, garantizando la \textbf{integridad y la rapidez de los procesos}.
+\end{itemize}
+
+% HABILIDADES TÉCNICAS
+\section{Habilidades Técnicas}
+\textbf{Lenguajes de Programación:} \textbf{C\#}, \textbf{Dart}, JavaScript, Python, SQL\\
+\textbf{Frameworks \& Librerías:} \textbf{.NET} (.NET Core, .NET Standard), \textbf{Flutter}, React, Flask, Laravel, Node.js\\
+\textbf{Bases de Datos:} \textbf{MSSQL (SQL Server)}, MongoDB, Redis\\
+\textbf{Plataformas Cloud \& DevOps:} \textbf{Azure}, AWS, Firebase, Docker, Azure DevOps, CI/CD\\
+\textbf{Herramientas \& Metodologías:} Jira, SCRUM, XP (Extreme Programming), APIs RESTful, Postman, SonarQube, TDD (Test-Driven Development), Microservicios\\
+
+% EDUCACIÓN
+\section{Educación}
+\textbf{Ingeniero en Sistemas Computacionales} \hfill \textbf{Agosto 2018 – Diciembre 2022}\\
+\textit{Instituto Tecnológico de Durango} \hfill \textit{Durango, México}\\
+\begin{itemize}
+    \item Especialización en \textbf{Ciencia de Datos}
+    \item Promedio de egreso: \textbf{94.60}
+\end{itemize}
+
+\textbf{Master en Data Science / AI} \hfill \textbf{Abril 2022 – Mayo 2023}\\
+\textit{DevF}\\
+\textbf{Scrum Fundamentals Certified (SFC™)} \hfill \textbf{Emitido: Mayo 2024}\\
+
+% IDIOMAS
+\section{Idiomas}
+\textbf{Español:} Nativo\\
+\textbf{Inglés:} Intermedio
+
+\end{document}

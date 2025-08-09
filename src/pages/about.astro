@@ -1,0 +1,115 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Badge from "../components/Badge.astro";
+---
+
+<Layout>
+  <main class="px-4">
+    <section class="w-full mx-auto lg:w-[720px] py-16">
+      <div class="text-center mb-16">
+        <h1 class="text-white text-4xl md:text-5xl font-bold mb-6">Sobre Mí</h1>
+        <div class="w-32 h-32 mx-auto mb-8">
+          <img
+            class="rounded-full w-32 h-32 object-cover border-4 border-white/20"
+            src="https://avatars.githubusercontent.com/u/82974706"
+            alt="Luis Alberto Jiménez Soto"
+          />
+        </div>
+      </div>
+
+      <!-- Personal Introduction -->
+      <div class="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10 mb-8">
+        <h2 class="text-white text-2xl font-bold mb-6">¡Hola! 👋</h2>
+        <div class="text-gray-300 leading-relaxed space-y-4">
+          <p>
+            Soy <strong class="text-white">Luis Alberto Jiménez Soto</strong>, un Ingeniero en Sistemas Computacionales con más de 5 años de experiencia en el desarrollo de software. Mi pasión por la tecnología comenzó desde muy joven, y desde entonces he estado comprometido con el aprendizaje continuo y la creación de soluciones digitales innovadoras.
+          </p>
+          <p>
+            Actualmente trabajo como <strong class="text-blue-400">Full-stack Developer</strong> en Change And Code, donde me especializo en el desarrollo de aplicaciones web y móviles utilizando tecnologías como <strong class="text-purple-400">.NET</strong>, <strong class="text-blue-400">Flutter</strong>, y <strong class="text-green-400">MongoDB</strong>.
+          </p>
+          <p>
+            Mi enfoque va más allá del código: me apasiona entender las necesidades del negocio y traducirlas en soluciones técnicas robustas y escalables. Creo firmemente en la importancia de escribir código limpio, mantenible y bien documentado.
+          </p>
+        </div>
+      </div>
+
+      <!-- Education -->
+      <div class="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10 mb-8">
+        <h2 class="text-white text-2xl font-bold mb-6 flex items-center">
+          🎓 Educación
+        </h2>
+        <div class="space-y-6">
+          <div class="border-l-4 border-blue-500 pl-6">
+            <h3 class="text-white text-xl font-semibold">Ingeniero en Sistemas Computacionales</h3>
+            <p class="text-blue-400 font-medium">Instituto Tecnológico de Durango</p>
+            <p class="text-gray-400 text-sm">Agosto 2018 - Diciembre 2022</p>
+            <p class="text-gray-300 mt-2">Especialización en Ciencia de Datos | Promedio: 94.60</p>
+          </div>
+          <div class="border-l-4 border-purple-500 pl-6">
+            <h3 class="text-white text-xl font-semibold">Master en Data Science / AI</h3>
+            <p class="text-purple-400 font-medium">DevF</p>
+            <p class="text-gray-400 text-sm">Abril 2022 - Mayo 2023</p>
+          </div>
+          <div class="border-l-4 border-green-500 pl-6">
+            <h3 class="text-white text-xl font-semibold">Scrum Fundamentals Certified (SFC™)</h3>
+            <p class="text-green-400 font-medium">Certificación</p>
+            <p class="text-gray-400 text-sm">Emitido: Mayo 2024</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Philosophy & Values -->
+      <div class="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10 mb-8">
+        <h2 class="text-white text-2xl font-bold mb-6 flex items-center">
+          💡 Mi Filosofía de Trabajo
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-4">
+            <div class="flex items-start space-x-3">
+              <span class="text-blue-400 text-xl">🚀</span>
+              <div>
+                <h4 class="text-white font-semibold">Innovación Constante</h4>
+                <p class="text-gray-300 text-sm">Siempre busco nuevas formas de resolver problemas y mejorar procesos.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <span class="text-green-400 text-xl">🎯</span>
+              <div>
+                <h4 class="text-white font-semibold">Orientado a Resultados</h4>
+                <p class="text-gray-300 text-sm">Me enfoco en entregar valor real y medible a través de la tecnología.</p>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-start space-x-3">
+              <span class="text-purple-400 text-xl">🤝</span>
+              <div>
+                <h4 class="text-white font-semibold">Trabajo en Equipo</h4>
+                <p class="text-gray-300 text-sm">Creo en la colaboración y el intercambio de conocimientos.</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <span class="text-orange-400 text-xl">📚</span>
+              <div>
+                <h4 class="text-white font-semibold">Aprendizaje Continuo</h4>
+                <p class="text-gray-300 text-sm">La tecnología evoluciona rápido, y yo evoluciono con ella.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Current Status -->
+      <div class="bg-gradient-to-r from-blue-500/10 to-purple-500/10 backdrop-blur-sm rounded-lg p-8 border border-white/10 text-center">
+        <h2 class="text-white text-2xl font-bold mb-4">Estado Actual</h2>
+        <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-4">
+          <Badge>Disponible para proyectos</Badge>
+          <Badge>Remoto / Híbrido</Badge>
+        </div>
+        <p class="text-gray-300 max-w-2xl mx-auto">
+          Actualmente estoy abierto a nuevas oportunidades y proyectos desafiantes. Me interesa especialmente trabajar en proyectos que involucren desarrollo Full Stack, arquitectura de software y tecnologías emergentes.
+        </p>
+      </div>
+    </section>
+  </main>
+</Layout>

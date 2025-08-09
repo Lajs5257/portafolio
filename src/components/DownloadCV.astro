@@ -1,0 +1,33 @@
+---
+// Este componente permite descargar el CV en PDF
+---
+
+<a
+  href="/cv-luis-alberto-jimenez.pdf"
+  download="CV-Luis-Alberto-Jimenez-Soto.pdf"
+  class="group relative inline-flex items-center gap-3 bg-gradient-to-r from-red-500 via-pink-500 to-purple-500 hover:from-red-600 hover:via-pink-600 hover:to-purple-600 text-white font-bold px-8 py-4 rounded-2xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-purple-500/25 focus:outline-none focus:ring-2 focus:ring-purple-400/50 overflow-hidden"
+  {...Astro.props}
+>
+  <!-- Animated background -->
+  <div class="absolute inset-0 bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+  
+  <!-- Shine effect -->
+  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:animate-pulse group-hover:translate-x-full transition-transform duration-1000"></div>
+  
+  <div class="relative z-10 flex items-center gap-3">
+    <svg 
+      class="w-6 h-6 group-hover:animate-bounce" 
+      fill="none" 
+      stroke="currentColor" 
+      viewBox="0 0 24 24"
+    >
+      <path 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        stroke-width="2" 
+        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+      ></path>
+    </svg>
+    <span class="font-bold"><slot>Descargar CV</slot></span>
+  </div>
+</a>

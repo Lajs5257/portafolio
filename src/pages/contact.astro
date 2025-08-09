@@ -1,0 +1,292 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Gmail from "../components/icons/Gmail.astro";
+import LinkedIn from "../components/icons/LinkedIn.astro";
+import Github from "../components/icons/Github.astro";
+---
+
+<Layout>
+  <main class="px-4">
+    <section class="w-full mx-auto lg:w-[720px] py-16">
+      <div class="text-center mb-16">
+        <h1 class="text-white text-4xl md:text-5xl font-bold mb-6">Contacto</h1>
+        <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+          ¿Tienes una idea de proyecto? ¿Buscas un desarrollador Full Stack? ¡Me
+          encantaría conocer tu propuesta!
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Contact Form -->
+        <div
+          class="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10"
+        >
+          <h2 class="text-white text-2xl font-bold mb-6">Envíame un mensaje</h2>
+
+          <form
+            class="space-y-6"
+            action="mailto:lajs5257@gmail.com"
+            method="post"
+          >
+            <div>
+              <label for="name" class="block text-white font-medium mb-2"
+                >Nombre</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all"
+                placeholder="Tu nombre completo"
+              />
+            </div>
+
+            <div>
+              <label for="email" class="block text-white font-medium mb-2"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all"
+                placeholder="tu@email.com"
+              />
+            </div>
+
+            <div>
+              <label for="subject" class="block text-white font-medium mb-2"
+                >Asunto</label
+              >
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                required
+                class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all"
+                placeholder="¿De qué se trata tu proyecto?"
+              />
+            </div>
+
+            <div>
+              <label for="message" class="block text-white font-medium mb-2"
+                >Mensaje</label
+              >
+              <textarea
+                id="message"
+                name="body"
+                rows="5"
+                required
+                class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/20 transition-all resize-none"
+                placeholder="Cuéntame sobre tu proyecto, presupuesto estimado, timeline, etc."
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400/50"
+            >
+              Enviar Mensaje
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Info & Social -->
+        <div class="space-y-8">
+          <!-- Contact Info -->
+          <div
+            class="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10"
+          >
+            <h2 class="text-white text-2xl font-bold mb-6">
+              Información de Contacto
+            </h2>
+
+            <div class="space-y-4">
+              <div class="flex items-center space-x-4">
+                <div
+                  class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center"
+                >
+                  <Gmail class="w-6 h-6 text-blue-400" />
+                </div>
+                <div>
+                  <h3 class="text-white font-semibold">Email</h3>
+                  <a
+                    href="mailto:lajs5257@gmail.com"
+                    class="text-gray-300 hover:text-blue-400 transition-colors"
+                  >
+                    lajs5257@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <div class="flex items-center space-x-4">
+                <div
+                  class="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center"
+                >
+                  <span class="text-green-400 text-xl">📱</span>
+                </div>
+                <div>
+                  <h3 class="text-white font-semibold">Teléfono</h3>
+                  <span
+                    id="phone-link"
+                    class="text-gray-300 hover:text-green-400 transition-colors cursor-pointer"
+                  ></span>
+                  <script>
+                    const phone = "+52 677 885 5228";
+                    const link = document.createElement("a");
+                    link.href = "tel:+526778855228";
+                    link.textContent = phone;
+                    link.className =
+                      "text-gray-300 hover:text-green-400 transition-colors";
+                    const phoneLink = document.getElementById("phone-link");
+                    if (phoneLink) {
+                      phoneLink.appendChild(link);
+                    }
+                  </script>
+                </div>
+              </div>
+
+              <div class="flex items-center space-x-4">
+                <div
+                  class="w-12 h-12 bg-purple-500/20 rounded-lg flex items-center justify-center"
+                >
+                  <span class="text-purple-400 text-xl">📍</span>
+                </div>
+                <div>
+                  <h3 class="text-white font-semibold">Ubicación</h3>
+                  <p class="text-gray-300">Durango, México</p>
+                  <p class="text-sm text-gray-400">
+                    Disponible para trabajo remoto
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Links -->
+          <div
+            class="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10"
+          >
+            <h2 class="text-white text-2xl font-bold mb-6">Redes Sociales</h2>
+
+            <div class="space-y-4">
+              <a
+                href="https://www.linkedin.com/in/luis-alberto-jimenez-soto/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center space-x-4 p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300 group"
+              >
+                <div
+                  class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform"
+                >
+                  <LinkedIn class="w-5 h-5 text-blue-400" />
+                </div>
+                <div>
+                  <h3 class="text-white font-semibold">LinkedIn</h3>
+                  <p class="text-gray-400 text-sm">
+                    Conecta conmigo profesionalmente
+                  </p>
+                </div>
+              </a>
+
+              <a
+                href="https://github.com/Lajs5257"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center space-x-4 p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300 group"
+              >
+                <div
+                  class="w-10 h-10 bg-gray-500/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform"
+                >
+                  <Github class="w-5 h-5 text-gray-400" />
+                </div>
+                <div>
+                  <h3 class="text-white font-semibold">GitHub</h3>
+                  <p class="text-gray-400 text-sm">
+                    Revisa mi código y proyectos
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <!-- Availability Status -->
+          <div
+            class="bg-gradient-to-r from-green-500/10 to-blue-500/10 backdrop-blur-sm rounded-lg p-8 border border-white/10 text-center"
+          >
+            <div
+              class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <span class="text-green-400 text-2xl">✨</span>
+            </div>
+            <h3 class="text-white text-xl font-bold mb-2">Estado Actual</h3>
+            <div class="flex items-center justify-center space-x-2 mb-4">
+              <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse">
+              </div>
+              <span class="text-green-400 font-semibold"
+                >Disponible para proyectos</span
+              >
+            </div>
+            <p class="text-gray-300 text-sm">
+              Estoy activamente buscando nuevas oportunidades y proyectos
+              interesantes. ¡No dudes en contactarme!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div
+        class="bg-white/5 backdrop-blur-sm rounded-lg p-8 border border-white/10 mt-12"
+      >
+        <h2 class="text-white text-2xl font-bold mb-8 text-center">
+          Preguntas Frecuentes
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-white font-semibold mb-2">
+              ¿Trabajas de forma remota?
+            </h3>
+            <p class="text-gray-300 text-sm">
+              Sí, trabajo tanto de forma remota como híbrida. Tengo experiencia
+              gestionando proyectos completamente remotos.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-white font-semibold mb-2">
+              ¿Qué tipos de proyectos prefieres?
+            </h3>
+            <p class="text-gray-300 text-sm">
+              Me especializo en desarrollo Full Stack, aplicaciones web y
+              móviles, APIs y sistemas empresariales.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-white font-semibold mb-2">
+              ¿Cuál es tu disponibilidad?
+            </h3>
+            <p class="text-gray-300 text-sm">
+              Estoy disponible para proyectos a tiempo completo o parcial,
+              dependiendo de la naturaleza del proyecto.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-white font-semibold mb-2">
+              ¿Manejas proyectos internacionales?
+            </h3>
+            <p class="text-gray-300 text-sm">
+              Por supuesto, tengo experiencia trabajando con equipos
+              internacionales y diferentes zonas horarias.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
