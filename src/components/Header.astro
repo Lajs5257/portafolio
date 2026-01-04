@@ -1,11 +1,19 @@
+---
+import { Image } from 'astro:assets';
+---
+
 <header
   class="flex flex-col md:flex-row justify-between items-center py-8 mb-8"
 >
   <div class="mb-6 md:mb-0 animate-float">
-    <img
+    <Image
       class="rounded-full w-14 h-14 border-2 border-blue-400/30 shadow-lg hover:border-blue-400/60 transition-all duration-300 animate-glow"
       src="https://avatars.githubusercontent.com/u/82974706"
       alt="Luis Alberto Jiménez Soto"
+      width={56}
+      height={56}
+      loading="eager"
+      format="webp"
     />
   </div>
 

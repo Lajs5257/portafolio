@@ -1,5 +1,32 @@
 @import "tailwindcss";
 
+/* Color variables */
+:root {
+  /* Primary gradient colors */
+  --color-primary-blue: 59 130 246; /* blue-500 */
+  --color-primary-purple: 168 85 247; /* purple-500 */
+  --color-primary-cyan: 34 211 238; /* cyan-400 */
+
+  /* Accent colors */
+  --color-accent-green: 74 222 128; /* green-400 */
+  --color-accent-red: 239 68 68; /* red-500 */
+  --color-accent-pink: 236 72 153; /* pink-500 */
+
+  /* Background colors */
+  --color-bg-slate: 15 23 42; /* slate-900 */
+  --color-bg-purple: 88 28 135; /* purple-900 */
+  --color-bg-blue: 30 58 138; /* blue-900 */
+
+  /* UI colors */
+  --color-border: 255 255 255;
+  --color-text: 255 255 255;
+
+  /* Opacity values */
+  --opacity-glass: 0.05;
+  --opacity-border: 0.1;
+  --opacity-hover: 0.1;
+}
+
 /* Custom animations */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
@@ -46,9 +73,41 @@
 
 /* Glassmorphism effect */
 .glass {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(var(--color-border), var(--opacity-glass));
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(var(--color-border), var(--opacity-border));
+}
+
+/* Section separator with gradient */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(var(--color-primary-purple), 0.3) 20%,
+    rgba(var(--color-primary-blue), 0.4) 50%,
+    rgba(var(--color-primary-purple), 0.3) 80%,
+    transparent
+  );
+  margin: 4rem 0;
+  position: relative;
+}
+
+.section-divider::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 5px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(var(--color-primary-blue), 0.2) 0%,
+    transparent 70%
+  );
+  filter: blur(4px);
 }
 
 /* Improved scrollbar */
@@ -61,23 +120,35 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(59, 130, 246, 0.5);
+  background: rgba(var(--color-primary-blue), 0.5);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(59, 130, 246, 0.7);
+  background: rgba(var(--color-primary-blue), 0.7);
 }
 
 /* Selection styling */
 ::selection {
-  background: rgba(59, 130, 246, 0.3);
-  color: white;
+  background: rgba(var(--color-primary-blue), 0.3);
+  color: rgb(var(--color-text));
 }
 
 html { scroll-behavior: smooth; }
 
 /* Back to top helper (extra fallback styling) */
 .back-to-top-shadow {
-  box-shadow: 0 4px 18px -4px rgba(59,130,246,0.4), 0 2px 6px -2px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 18px -4px rgba(var(--color-primary-blue), 0.4), 0 2px 6px -2px rgba(0, 0, 0, 0.4);
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
