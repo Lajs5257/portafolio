@@ -12,22 +12,13 @@ RUN bun run build
 # Stage 2: Serve with nginx
 FROM nginx:alpine
 
-# Remove default nginx config and welcome page
-RUN rm /etc/nginx/conf.d/default.conf \
- && rm -rf /usr/share/nginx/html/*
-
-# Copy custom config and built assets
+# Copy custom nginx config (replaces the main config entirely)
 COPY nginx.conf /etc/nginx/nginx.conf
+
+# Remove default server block and welcome page, then copy built assets
+RUN rm -f /etc/nginx/conf.d/default.conf \
+ && rm -rf /usr/share/nginx/html/*
 COPY --from=builder /app/dist /usr/share/nginx/html
-
-# Ensure nginx user owns the files and can write logs/tmp
-RUN chown -R nginx:nginx /usr/share/nginx/html \
- && chown -R nginx:nginx /var/cache/nginx \
- && chown -R nginx:nginx /var/log/nginx \
- && touch /tmp/nginx.pid \
- && chown nginx:nginx /tmp/nginx.pid
-
-USER nginx
 
 EXPOSE 4321
 
