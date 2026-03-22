@@ -2,23 +2,29 @@
 import "../styles/global.css";
 import "@fontsource-variable/onest";
 import Header from "../components/Header.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Luis Alberto - Full Stack Developer",
+  description = "Ingeniero en Sistemas Computacionales con 5 años de experiencia en desarrollo Full Stack. Especializado en .NET, Flutter, SQL, Docker y Python.",
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es" class="dark">
   <head>
-    <title>Luis Alberto - Full Stack Developer</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Luis Alberto - Full Stack Developer</title>
-    <meta
-      name="description"
-      content="Ingeniero en Sistemas Computacionales con 5 años de experiencia en desarrollo Full Stack. Especializado en .NET, Flutter, SQL, Docker y Python."
-    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
   </head>
   <body class="antialiased">
-    <!-- Background with improved gradient -->
+    <!-- Background -->
     <div class="fixed inset-0 -z-10">
       <div
         class="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
@@ -34,7 +40,7 @@ import Header from "../components/Header.astro";
       </div>
     </div>
 
-    <!-- Animated background particles (now static, sin pulse) -->
+    <!-- Animated background particles -->
     <div class="fixed inset-0 -z-5 overflow-hidden">
       <div
         class="absolute -top-40 -right-40 w-80 h-80 bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-15"
@@ -57,7 +63,7 @@ import Header from "../components/Header.astro";
       </div>
     </div>
 
-    <!-- Back to top button (mejorado) -->
+    <!-- Back to top button -->
     <button
       id="backToTop"
       aria-label="Volver arriba"
@@ -79,7 +85,7 @@ import Header from "../components/Header.astro";
     <script>
       const btn = document.getElementById("backToTop");
       if (btn) {
-        const showAt = 400; // px
+        const showAt = 400;
         const toggleBtn = () => {
           if (window.scrollY > showAt) {
             btn.classList.add(
@@ -106,7 +112,7 @@ import Header from "../components/Header.astro";
           }
         };
         window.addEventListener("scroll", toggleBtn, { passive: true });
-        toggleBtn(); // estado inicial
+        toggleBtn();
         btn.addEventListener("click", () => {
           window.scrollTo({ top: 0, behavior: "smooth" });
         });
