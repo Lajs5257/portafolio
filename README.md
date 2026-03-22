@@ -1,119 +1,55 @@
-# Portafolio – Luis Alberto Jiménez
+# Portafolio Personal
 
-Portafolio personal para presentar experiencia, habilidades y proyectos como Full Stack Developer (.NET, Flutter, SQL, Docker y Python).
+Sitio personal de Luis Alberto Jiménez Soto — Full Stack Developer. Generado estáticamente con Astro, cero JavaScript en el navegador.
 
-![Stack](https://img.shields.io/badge/Astro-2C2952?logo=astro&logoColor=FF5D01) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-0f172a?logo=tailwindcss&logoColor=38BDF8) ![Bun](https://img.shields.io/badge/Bun-000?logo=bun&logoColor=fff) ![TypeScript](https://img.shields.io/badge/TypeScript-1f2937?logo=typescript&logoColor=3178C6)
+![Astro](https://img.shields.io/badge/Astro_6-2C2952?logo=astro&logoColor=FF5D01) ![TailwindCSS](https://img.shields.io/badge/TailwindCSS_4-0f172a?logo=tailwindcss&logoColor=38BDF8) ![TypeScript](https://img.shields.io/badge/TypeScript-1f2937?logo=typescript&logoColor=3178C6) ![Bun](https://img.shields.io/badge/Bun-000?logo=bun&logoColor=fff)
 
-## ✨ Características
-- Diseño oscuro con gradientes sutiles y efecto glass
-- Secciones: Hero, Experiencia, Habilidades, Proyectos, Contacto
-- Animaciones ligeras (float / fade) optimizadas
-- Componente para descarga de CV
-- Botón “volver arriba” con aparición progresiva
-- Código estructurado por componentes Astro + Tailwind utility-first
-- Preparado para despliegue estático (CDN friendly)
+**Sitio en vivo:** [lajs5257.dev](https://lajs5257.dev)
 
-## 🗂 Estructura del Proyecto
-```
-/
-├── astro.config.mjs
-├── package.json
-├── Dockerfile
-├── public/
-│   ├── favicon.svg
-│   └── cv-luis-alberto-jimenez.pdf
-├── src/
-│   ├── assets/
-│   ├── components/
-│   │   ├── Badge.astro
-│   │   ├── DownloadCV.astro
-│   │   ├── Header.astro
-│   │   ├── SocialBadget.astro
-│   │   └── icons/*.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   ├── pages/
-│   │   ├── index.astro
-│   │   ├── about.astro (en revisión / posible fusión)
-│   │   ├── projects.astro
-│   │   └── contact.astro
-│   └── styles/global.css
-└── tsconfig.json
-```
+## Qué es
 
-## 🚀 Inicio Rápido
-Requisitos: [Bun](https://bun.sh) (o adapta a npm/yarn/pnpm).
+Portafolio profesional con secciones de experiencia, habilidades, proyectos y contacto. Pensado para ser rápido, accesible y fácil de mantener.
+
+- Cero JavaScript enviado al navegador (salvo un botón de volver arriba)
+- Diseño oscuro con glassmorphism y gradientes sutiles
+- Responsive, mobile-first
+- SEO optimizado (sitemap, meta tags, robots.txt)
+- Imágenes optimizadas con astro:assets + Sharp (conversión automática a WebP)
+- Sitio estático pre-renderizado en build time
+
+## Stack tecnológico
+
+| Tecnología | Versión | Propósito |
+|------------|---------|-----------|
+| Astro | 6.0.8 | Static site generator |
+| TailwindCSS | 4.2.2 | Utility-first CSS |
+| TypeScript | strict | Type safety |
+| Bun | latest | Package manager & runtime |
+| Sharp | 0.34.5 | Image optimization |
+| Nginx | alpine | Static file server (Docker) |
+
+## Inicio rápido
+
 ```bash
 bun install
-bun run dev   # http://localhost:4321
+bun run dev        # http://localhost:4321
 ```
-Compilar producción:
+
+## Docker
+
 ```bash
-bun run build
-bun run preview
-```
-Con npm (alternativa):
-```bash
-npm install
-npm run dev
-```
-
-## 🧩 Scripts
-| Script | Descripción |
-|--------|-------------|
-| bun dev | Servidor de desarrollo |
-| bun build | Genera `dist/` listo para deploy |
-| bun preview | Sirve la build local |
-
-## 🔧 Personalización Rápida
-- Colores: ajusta gradientes en `Layout.astro`.
-- Animaciones: modifica/añade en `global.css`.
-- Navegación: edita `Header.astro` (anclas vs páginas).
-- Contenido: actualiza secciones dentro de `pages/`.
-
-## 📈 Performance / Buenas Prácticas
-Aplicadas o recomendadas:
-- Eliminación de clases no usadas (Tailwind JIT + build)
-- Animaciones solo en `transform` / `opacity`
-- Scroll suave + botón de retorno (no bloquea hilo)
-- Posible uso futuro de `content-visibility:auto` en secciones largas
-- Imágenes optimizables (siguiente paso: incorporar `@astrojs/image`)
-
-## 🐳 Despliegue con Docker
-```
-# Build de producción
-bun run build
-# Crear imagen
 docker build -t portafolio .
-# Ejecutar contenedor (ejemplo sirve en :4321 interno → mapear 8080 host)
 docker run -p 8080:4321 portafolio
 ```
-(Verifica el CMD/EXPOSE del Dockerfile y ajusta puerto si cambia.)
 
-## ☁️ Despliegue (alternativas)
-- Vercel: importar repo → framework Astro → build `bun run build` → output `dist`.
-- Netlify: build `bun run build` → publish `dist/`.
-- Cloudflare Pages: build command `bun run build`.
+Multi-stage build: Bun compila, nginx sirve los estáticos.
 
-## ⚙️ Producción (Resumen)
-Sitio: https://lajs5257.dev
-Infra: Oracle Cloud VPS + Coolify + Caddy + Cloudflare.
-Deploy: push a `main` → webhook → build (Bun) → Caddy sirve nueva versión (cero downtime).
-Cache: assets versionados (immutable) + edge Cloudflare.
-Detalles completos y Caddyfile en [`docs/DEPLOY.md`](./docs/DEPLOY.md).
+## Infraestructura
 
-## 🛣 Roadmap / Próximos Pasos
-- [ ] Fusionar sección About dentro de Home (versión ancla)
-- [ ] Optimizar imágenes (avatar WebP + `@astrojs/image`)
-- [ ] Añadir sección Blog / Artículos
-- [ ] Implementar modo claro (theme switch)
-- [ ] Tests de accesibilidad (axe / Lighthouse)
-- [ ] Integrar Analytics ligero (Plausible / Umami)
+Oracle Cloud VPS + Coolify + Traefik + Cloudflare. Push a `main` dispara un webhook que construye la imagen Docker y despliega automáticamente con zero downtime. Los assets se cachean en el edge de Cloudflare.
 
-## 📬 Contacto
-- LinkedIn: https://www.linkedin.com/in/luis-alberto-jimenez-soto/
-- Email: lajs5257@gmail.com
-- GitHub: https://github.com/Lajs5257
+## Contacto
 
----
-Hecho con Astro + Tailwind + Bun.
+- **GitHub:** [github.com/Lajs5257](https://github.com/Lajs5257)
+- **LinkedIn:** [linkedin.com/in/luis-alberto-jimenez-soto](https://www.linkedin.com/in/luis-alberto-jimenez-soto/)
+- **Email:** lajs5257@gmail.com
