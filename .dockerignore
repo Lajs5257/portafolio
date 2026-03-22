@@ -1,3 +1,14 @@
 node_modules
-.git
 dist
+.git
+.env*
+.vscode
+.idea
+
+# Documentation (not needed in build)
+*.md
+LICENSE
+
+# OS files
+.DS_Store
+Thumbs.db

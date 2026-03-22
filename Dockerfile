@@ -1,27 +1,37 @@
-FROM node:22-alpine AS base
+# Stage 1: Build with Bun
+FROM oven/bun:1-alpine AS builder
 
 WORKDIR /app
 
-# Install Bun
-RUN apk add --no-cache bash curl \
-  && curl -fsSL https://bun.sh/install | bash
+COPY package.json bun.lock ./
+RUN bun install --frozen-lockfile
 
-# Set up Bun environment
-ENV BUN_INSTALL="/root/.bun"
-ENV PATH="${BUN_INSTALL}/bin:$PATH"
-
-# Install dependencies
-COPY package.json bun.lockb* ./
-RUN bun install
-
-# Copy application files
 COPY . .
+RUN bun run build
 
-# Build the application
-RUN bun run build && bun add -g serve
+# Stage 2: Serve with nginx
+FROM nginx:alpine
 
-# Create a production image
+# Remove default nginx config and welcome page
+RUN rm /etc/nginx/conf.d/default.conf \
+ && rm -rf /usr/share/nginx/html/*
+
+# Copy custom config and built assets
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Ensure nginx user owns the files and can write logs/tmp
+RUN chown -R nginx:nginx /usr/share/nginx/html \
+ && chown -R nginx:nginx /var/cache/nginx \
+ && chown -R nginx:nginx /var/log/nginx \
+ && touch /tmp/nginx.pid \
+ && chown nginx:nginx /tmp/nginx.pid
+
+USER nginx
+
 EXPOSE 4321
 
-# Serve como sitio multi‑página (sin -s para NO forzar SPA fallback)
-CMD ["serve", "dist", "-l", "4321"]
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD wget -qO- http://localhost:4321/ || exit 1
+
+CMD ["nginx", "-g", "daemon off;"]
